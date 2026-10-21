@@ -1,0 +1,10 @@
+{% extends "base.html" %} {% block title %}Dashboard Â· Visual India{% endblock %} {% block content %}
+Welcome, {{ full_name }}! ðŸ‘‹
+
+You are signed in to your demo account.
+
+Account dashboard
+This is a starter page. Add real features only when they are implemented and tested.
+
+Logout
+{% endblock %}
