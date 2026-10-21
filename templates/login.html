@@ -1,9 +1,46 @@
-{% extends "base.html" %} {% block title %}Login Â· Visual India{% endblock %} {% block content %}
-Welcome Back! ðŸ‘‹
+{% extends "base.html" %}
 
-Phone Number Password  â†’ Login
-Forgot Password?
+{% block title %}Login · Visual India{% endblock %}
 
-New here? Create an account
+{% block content %}
+<h2>Welcome Back! 👋</h2>
+<p class="muted">Log in to your Visual India account.</p>
 
+<form method="POST" action="{{ url_for('login') }}">
+    <label for="phone">Phone Number</label>
+    <input
+        type="tel"
+        id="phone"
+        name="phone"
+        placeholder="10-digit mobile number"
+        inputmode="numeric"
+        pattern="[0-9]{10}"
+        maxlength="10"
+        required
+    >
+
+    <label for="password">Password</label>
+    <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Enter your password"
+        required
+    >
+
+    <button type="submit">→ Login</button>
+</form>
+
+<p class="center">
+    <a class="link" href="{{ url_for('forgot_password') }}">
+        Forgot Password?
+    </a>
+</p>
+
+<p class="center muted">
+    New here?
+    <a class="link" href="{{ url_for('register') }}">
+        Create an account
+    </a>
+</p>
 {% endblock %}
