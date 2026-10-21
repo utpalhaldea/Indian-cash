@@ -1,11 +1,221 @@
-VI
-Visual India
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Visual India{% endblock %}</title>
 
-Your path to building something meaningful
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-🏆   Welcome to your account   →
-↪ Login ♙ Register
-{% with messages = get_flashed_messages(with_categories=true) %} {% if messages %} {% for category, message in messages %}
-{{ message }}
-{% endfor %} {% endif %} {% endwith %} {% block content %}{% endblock %}
-Demo starter project · Keep your account details private
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6fb;
+            color: #20243a;
+        }
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 18px 6%;
+        }
+
+        .nav {
+            max-width: 1000px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .brand {
+            font-size: 22px;
+            font-weight: bold;
+            color: #4f46e5;
+            text-decoration: none;
+        }
+
+        nav a {
+            color: #343850;
+            text-decoration: none;
+            margin-left: 15px;
+            font-size: 14px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 30px 15px 10px;
+        }
+
+        .hero h1 {
+            margin-bottom: 8px;
+            font-size: 30px;
+        }
+
+        .hero p {
+            color: #6b7280;
+        }
+
+        main {
+            width: 100%;
+            max-width: 460px;
+            margin: 20px auto 45px;
+            padding: 0 16px;
+        }
+
+        .card {
+            background: white;
+            padding: 28px;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0,0,0,.06);
+        }
+
+        h2 {
+            margin-top: 0;
+            font-size: 25px;
+        }
+
+        label {
+            display: block;
+            margin: 15px 0 7px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #d1d5db;
+            border-radius: 9px;
+            font-size: 16px;
+        }
+
+        input:focus {
+            outline: 2px solid #c7d2fe;
+            border-color: #6366f1;
+        }
+
+        button, .button {
+            display: inline-block;
+            width: 100%;
+            padding: 13px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 9px;
+            background: #4f46e5;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        button:hover, .button:hover {
+            background: #3730a3;
+        }
+
+        .muted {
+            color: #6b7280;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .link {
+            color: #4f46e5;
+            text-decoration: none;
+        }
+
+        .message {
+            padding: 12px;
+            margin-bottom: 14px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .error {
+            color: #991b1b;
+            background: #fee2e2;
+        }
+
+        .success {
+            color: #166534;
+            background: #dcfce7;
+        }
+
+        footer {
+            text-align: center;
+            padding: 22px 12px;
+            color: #6b7280;
+            font-size: 12px;
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 15px;
+            }
+
+            .brand {
+                font-size: 19px;
+            }
+
+            nav a {
+                margin-left: 8px;
+                font-size: 12px;
+            }
+
+            .card {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav">
+            <a class="brand" href="{{ url_for('home') }}">
+                VI Visual India
+            </a>
+
+            <nav>
+                <a href="{{ url_for('login') }}">↪ Login</a>
+                <a href="{{ url_for('register') }}">♙ Register</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Your path to building something meaningful 🏆</h1>
+        <p>Welcome to your account →</p>
+    </section>
+
+    <main>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="message {{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <div class="card">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <footer>
+        Demo starter project · Keep your account details private
+    </footer>
+</body>
+</html>
