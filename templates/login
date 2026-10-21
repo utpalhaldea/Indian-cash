@@ -1,0 +1,9 @@
+{% extends "base.html" %} {% block title %}Login Â· Visual India{% endblock %} {% block content %}
+Welcome Back! ðŸ‘‹
+
+Phone Number Password  â†’ Login
+Forgot Password?
+
+New here? Create an account
+
+{% endblock %}
