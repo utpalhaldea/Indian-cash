@@ -1,0 +1,11 @@
+VI
+Visual India
+
+Your path to building something meaningful
+
+🏆   Welcome to your account   →
+↪ Login ♙ Register
+{% with messages = get_flashed_messages(with_categories=true) %} {% if messages %} {% for category, message in messages %}
+{{ message }}
+{% endfor %} {% endif %} {% endwith %} {% block content %}{% endblock %}
+Demo starter project · Keep your account details private
