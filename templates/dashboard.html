@@ -1,10 +1,28 @@
-{% extends "base.html" %} {% block title %}Dashboard Â· Visual India{% endblock %} {% block content %}
-Welcome, {{ full_name }}! ðŸ‘‹
+{% extends "base.html" %}
 
-You are signed in to your demo account.
+{% block title %}Dashboard · Visual India{% endblock %}
 
-Account dashboard
-This is a starter page. Add real features only when they are implemented and tested.
+{% block content %}
+<h2>Welcome, {{ full_name }}! 👋</h2>
 
-Logout
+<p class="muted">
+    You are signed in to your Visual India demo account.
+</p>
+
+<hr>
+
+<h3>Account Dashboard</h3>
+
+<p>
+    Your account login is working.
+</p>
+
+<p class="muted">
+    This is the starter dashboard. Other features must be
+    implemented separately before they can work.
+</p>
+
+<form method="POST" action="{{ url_for('logout') }}">
+    <button type="submit">Logout ↗</button>
+</form>
 {% endblock %}
